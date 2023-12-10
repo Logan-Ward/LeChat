@@ -1,0 +1,153 @@
+.App {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+}
+
+.left-bar {
+  background-color: green;
+}
+
+.right-bar {
+  background-color: yellow;
+}
+
+.center-bar {
+  background-color: black;
+}
+
+.top-bar {
+  background-color: red;
+}
+
+.bottom-bar {
+  background-color: blue;
+}
+
+/* Media Specific Section */
+
+/* Smallest - Bottom Bar / Popout Left Side Bar / Top Bar */
+@media ((max-width: 500px) or (max-height: 500px)) and (max-width: 1000px) {
+  .App {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(50px, 1fr) 9fr minmax(50px, 1fr);
+    grid-template-areas:
+      'top-bar'
+      'center-bar'
+      'bottom-bar';
+  }
+  
+  .left-bar {
+    display: none;
+  }
+  
+  .right-bar {
+    display: none;
+  }
+  
+  .center-bar {
+    grid-area: center-bar;
+  }
+  
+  .top-bar {
+    grid-area: top-bar;
+  }
+  
+  .bottom-bar {
+    grid-area: bottom-bar;
+  }
+}
+
+/* Tall And Thin - Left Side Bar Fixed Joined With Bottom Bar Contents / Top Bar */
+@media (min-width: 501px) and (min-height: 501px) and (max-width: 1000px) {
+  .App {
+    grid-template-columns: minmax(50px, 1fr) 6fr;
+    grid-template-rows: minmax(50px, 1fr) 10fr;
+    grid-template-areas:
+      'left-bar top-bar'
+      'left-bar center-bar';
+  }
+  
+  .left-bar {
+    grid-area: left-bar;
+  }
+  
+  .right-bar {
+    display: none;
+  }
+  
+  .center-bar {
+    grid-area: center-bar;
+  }
+  
+  .top-bar {
+    grid-area: top-bar;
+  }
+  
+  .bottom-bar {
+    display: none;
+  }
+}
+
+/* Short And Wide - Bottom Bar / Popout Left Side Bar / Top Bar / Extended Info Right Bar */
+@media (max-height: 500px) and (min-width: 1001px) {
+  .App {
+    grid-template-columns: 6fr minmax(50px, 1fr);
+    grid-template-rows: minmax(50px, 1fr) 9fr minmax(50px, 1fr);
+    grid-template-areas:
+      'top-bar right-bar'
+      'center-bar right-bar'
+      'bottom-bar right-bar';
+  }
+  
+  .left-bar {
+    display: none;
+  }
+  
+  .right-bar {
+    grid-area: right-bar;
+  }
+  
+  .center-bar {
+    grid-area: center-bar;
+  }
+  
+  .top-bar {
+    grid-area: top-bar;
+  }
+  
+  .bottom-bar {
+    grid-area: bottom-bar;
+  }
+}
+
+/* Largest - Left Side Bar Fixed Joined With Bottom Bar Contents / Top Bar / Extended Info Right Bar */
+@media (min-height: 501px) and (min-width: 1001px) {
+  .App {
+    grid-template-columns: minmax(50px, 1fr) 6fr minmax(50px, 1fr);
+    grid-template-rows: minmax(50px, 1fr) 10fr;
+    grid-template-areas:
+      'left-bar top-bar right-bar'
+      'left-bar center-bar right-bar'
+  }
+  
+  .left-bar {
+    grid-area: left-bar;
+  }
+  
+  .right-bar {
+    grid-area: right-bar;
+  }
+  
+  .center-bar {
+    grid-area: center-bar;
+  }
+  
+  .top-bar {
+    grid-area: top-bar;
+  }
+  
+  .bottom-bar {
+    display: none;
+  }
+}
